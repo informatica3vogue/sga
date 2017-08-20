@@ -42,42 +42,7 @@
                         </th>
                     </tr>
                     </thead>
-<?php
-                    $cont = 1;  
-                    $response = $dataTable->obtener_Articulos_Insumos($_SESSION["id_dependencia"]); 
-?>
                     <tbody>
-<?php    
-                    foreach($response['items'] as $datos){
-                        $color = ($datos['existencia'] == 'Agotado') ? 'class="text-red"':'class="text-blue"';
-?>
-                    <tr>
-                        <td>
-                            <?php echo $cont ?>
-                        </td>
-                        <td>
-                            <?php echo $datos['articulo'] ?>
-                        </td>
-                        <td class="center">
-                            <?php echo $datos['marca'] ?>
-                        </td>
-                        <td class="center">
-                            <?php echo $datos['unidad_medida'] ?>
-                        </td>
-                        <td class="center">
-                            <span <?php echo $color ?>><?php echo $datos['existencia'] ?></span>
-                        </td>
-                        <?php  $datos['articulo'] = $data->clearString($datos['articulo']);  ?>
-                        <td class="center">
-                            <a class="btn btn-warning" data-rel="tooltip" title='Agregar existencia al articulo' href="#" data-toggle='modal' data-target='#modal_existencia' onclick="cargar_articulo(<?php echo $datos['id_articulo'] ?>, '<?php echo $datos['articulo'] ?>');"> 
-                                <i class="halflings-icon white plus"></i>
-                            </a>
-                        </td>
-                    </tr>
-    <?php  
-                        $cont ++;
-                    } 
-    ?>
                     </tbody>
                     </table>
                 </div>
@@ -114,45 +79,4 @@
         <button type="submit" id="guardar" name="guardar" class="btn btn-primary pull-right">Guardar</button>
     </div>
 </div>
-</form> 
-<script type="text/javascript">
-function cargar_articulo(id_articulo, articulo){
-    $('#txtArticulo').val(id_articulo);
-    $('#nombre_articulo').html(articulo);
-}
-
-// Funcion que nos permitira mandar los datos a ingresar
-$(document).ready(function () {
-    $('#guardar').click(function () {
-        $.validate({
-            onSuccess : function(form) {
-                var formulario = $('#frmExistencia').serializeArray();
-                $.ajax({
-                    data: formulario,
-                    type: 'POST',
-                    dataType: "Json",
-                    url: 'procesos/insumos/guardar_cargo_articulo.php',
-                    beforeSend: function () {
-                        $.blockUI({ message: '<h1><img src="img/loading.gif"/> Espere un momento...</h1>' });
-                    },
-                    success: function(response){
-                        if(response.success == true) {
-                            $('#modal_existencia').modal('hide');
-                            $.alert(response.mensaje , { title: 'Operacion exitosa', icon: 'circle-check', buttons: { 'Aceptar': function () { $(this).dialog("close"); location.href ="?mod=articulo"; }}});
-                        }else{   
-                            $('#modal_existencia').modal('hide');
-                            $.alert(response.mensaje , { title: 'Verifique su informacion!', icon: 'circle-close', buttons: { 'Aceptar': function () { $(this).dialog("close"); $('#modal_existencia').modal('show'); }}});
-                        }
-                    },
-                    error: function() {
-                        $.alert('Ocurrio un error al realizar la transaccion',{ title: 'Error!', icon: 'circle-close', buttons: { 'Cerrar': function () { $(this).dialog("close"); }}});
-                    },
-                    complete: function() {
-                        $.unblockUI();
-                    }
-                });
-            }
-        });
-    });
-});   
-</script>
+</form>

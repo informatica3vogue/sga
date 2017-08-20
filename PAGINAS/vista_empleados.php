@@ -44,54 +44,7 @@
                     </th>
                 </tr>
                 </thead>
-<?php
-                $cont = 1;  
-                $response = $dataTable->obtener_Empleados_Activos($_SESSION["id_dependencia"]); 
-?>
                 <tbody>
-                <?php    
-                    foreach($response['items'] as $datos){
-?>
-                <tr>
-                    <td>
-                        <?php echo $cont ?>
-                    </td>
-                    <td>
-                        <?php echo $datos['codigo'] ?>
-                    </td>
-                    <td>
-                        <?php echo $datos['nombre'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['apellido'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['DUI'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['cargo'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['seccion'] ?>
-                    </td>
-                    <td class="center">
-                        <a class="btn btn-success" data-rel="tooltip" title='Informacion de usuario' data-toggle='modal' data-target='#datos_empleado' onclick="datos_empleado('<?php echo $datos['codigo'] ?>','<?php echo $datos['nombre'] ?>','<?php echo $datos['apellido'] ?>','<?php echo $datos['estado_civil'] ?>','<?php echo $datos['DUI'] ?>','<?php echo $datos['NIT'] ?>','<?php echo $datos['NUP'] ?>','<?php echo $datos['ISSS'] ?>','<?php echo $datos['tipo_sangre'] ?>','<?php echo $datos['titulo'] ?>','<?php echo $datos['cargo'] ?>','<?php echo $datos['fecha_contratacion'] ?>','<?php echo $datos['tipo_contratacion'] ?>','<?php echo $datos['direccion'] ?>','<?php echo $datos['movil'] ?>','<?php echo $datos['fijo'] ?>','<?php echo $datos['persona_encargada'] ?>','<?php echo $datos['encargado'] ?>','<?php echo $datos['seccion'] ?>');"> 
-                            <i class="halflings-icon white info-sign"></i>
-                        </a>
-                        <a class="btn btn-info" data-rel="tooltip" title='Actualizar empleado' href="?mod=agregarempleado&id=<?php echo $datos['id_empleado'] ?>"> 
-                            <i class="halflings-icon white edit"></i>
-                        </a>
-                        <a class="btn btn-warning" data-rel="tooltip" title='Asignar permiso' href="?mod=empleados&ida=<?php echo $datos['id_empleado'] ?>"> 
-                            <i class="halflings-icon white file"></i>
-                        </a>
-                         <a class="btn btn-danger" href="#" data-rel="tooltip" title='Cambio de estado' data-toggle='modal' data-target='#modal_empleado' onclick="modificar_estado(<?php echo $datos['id_empleado'] ?>, '<?php echo $datos['nombre'] ?>','<?php echo $datos['apellido'] ?>','<?php echo $datos['estado'] ?>');">
-                            <i class="halflings-icon white retweet"></i>
-                        </a>
-                    </td>
-                </tr>
-                <?php  
-$cont ++;
-} ?>
                 </tbody>
                 </table>
             </div>
@@ -136,44 +89,7 @@ $cont ++;
                     </th>
                 </tr>
                 </thead>
-<?php
-                $cont = 1;  
-                $response = $dataTable->obtener_Empleados_Inactivos($_SESSION["id_dependencia"]); 
-?>
                 <tbody>
-                <?php    
-                    foreach($response['items'] as $datos){?>
-                <tr>
-                    <td>
-                        <?php echo $cont ?>
-                    </td>
-                    <td>
-                        <?php echo $datos['codigo'] ?>
-                    </td>
-                    <td>
-                        <?php echo $datos['nombre'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['apellido'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['DUI'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['fecha_final'] ?>
-                    </td>
-                    <td class="center">
-                        <?php echo $datos['observacion'] ?>
-                    </td>
-                    <td class="center">
-                        <a class="btn btn-danger" href="#" data-rel="tooltip" title='Cambio de estado' data-toggle='modal' data-target='#modal_empleado' onclick="modificar_estado(<?php echo $datos['id_empleado'] ?>, '<?php echo $datos['nombre'] ?>','<?php echo $datos['apellido'] ?>','<?php echo $datos['estado'] ?>');">
-                            <i class="halflings-icon white user"></i>
-                        </a>
-                    </td>
-                </tr>
-                <?php  
-$cont ++;
-} ?>
                 </tbody>
                 </table>
             </div>
@@ -327,54 +243,3 @@ $cont ++;
         <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Cancelar</button>
     </div>
 </div>
-<script type="text/javascript">
-//Funcion para cargar el formulario y modificar los datos
-function datos_empleado(codigo, nombre, apellido, estado_civil, DUI, NIT, NUP, ISSS, tipo_sangre, titulo,  cargo, fecha_contratacion, tipo_contratacion, direccion, fijo, movil, persona_encargada, encargado, seccion) {
-    document.getElementById('txtCodigo').value = codigo;
-    document.getElementById('txtNombre').value = nombre;
-    document.getElementById('txtApellido').value = apellido;
-    document.getElementById('txtEstadoCivil').value = estado_civil;
-    document.getElementById('txtDui').value = DUI;
-    document.getElementById('txtNit').value = NIT;
-    document.getElementById('txtNup').value = NUP;
-    document.getElementById('txtIsss').value = ISSS;
-    document.getElementById('txtSangre').value = tipo_sangre;
-    document.getElementById('txtTitulo').value = titulo;
-    document.getElementById('txtCargo').value = cargo;
-    document.getElementById('txtFecha').value = fecha_contratacion;
-    document.getElementById('txtTipo').value = tipo_contratacion;
-    document.getElementById('txtDireccion').value = direccion;        
-    document.getElementById('txtMovil').value = movil;
-    document.getElementById('txtFijo').value = fijo;
-    document.getElementById('txtEncargado').value = persona_encargada;
-    document.getElementById('txtTelefono').value = encargado;
-    document.getElementById('txtSeccion').value = seccion;
-}
-
-//Funcion para cargar los campos de la ventana modal
-function modificar_estado(id, nombre, apellido, estado) {
-    document.getElementById('txtId').value = id;
-    document.getElementById('txtNombre_Completo').value = nombre+' '+apellido;
-    document.getElementById('txtEstado').value = estado;
-}
-
-// Funcion que nos permitira cambiar el estado del usuario
-$(document).ready(function () {
-    $('#modificar_estado').click(function () {
-        var formulario = $('#frmEstado').serializeArray();
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: 'procesos/modificar_estado_empleado.php',
-            data: formulario,
-        }).done(function (response) {
-            if(response.success == true) {
-                $('#modal_empleado').modal('hide');
-                bootbox.alert(response.mensaje, function() { location.reload(); });
-            }else{
-                bootbox.alert(response.mensaje, function() {  });
-            }
-        });
-    });
-});
-</script>
