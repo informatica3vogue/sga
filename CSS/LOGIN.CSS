@@ -1,0 +1,95 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+    overflow: auto;
+    background: #ffffff;
+    background: -moz-radial-gradient(50% 50%, #0095ff, #0063dc); 
+    background: -webkit-radial-gradient(50% 50%, #0095ff, #0063dc); 
+    background: -o-radial-gradient(50% 50%, #0095ff, #0063dc); 
+    background: -ms-radial-gradient(50% 50%, #0095ff, #0063dc); 
+    background: radial-gradient(50% 50%, #0095ff, #0063dc); 
+}
+.position{
+    width: 325px;
+    margin-top: 15%;
+    box-shadow: 500px #ffffff;
+    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.container1 {
+    width: 325px;
+    height: 325px;
+    position: relative;
+    border-radius: 4px;
+}
+.container1:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.10);
+    border-radius: 4px;
+}
+.container2{
+    width: 325px;
+    height: 325px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 11px;
+    background: #f3f3f3;
+    border-radius: 4px;
+}
+.header {
+    height: 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 4px 4px 0 0;
+}
+.container1 img{
+    height: 200px;
+}
+.form{
+    border-top: 1px solid #cfcfcf;
+    width: 100%;
+}
+.container1 input[type=text], .container1 input[type=password] {
+    height: 20px;
+    width: 138px;
+    text-align: center;
+    color: #404040;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 1px;
+    outline: 2px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.container1 input[type=text]:focus, input[type=password]:focus {
+    border-color: #7dc9e2;
+    outline-color: #dceefc;
+    outline-offset: 0;
+}
+.container1 input[type=image] {
+    height: 24px;
+    width: 22px;
+    margin-top: 1px;
+}
+html {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
