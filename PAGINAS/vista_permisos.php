@@ -44,7 +44,44 @@
                     </th>
                 </tr>
                 </thead>
+<?php
+                $cont = 1;  
+                $response = $dataTable->obtener_Permisos($_SESSION["id_dependencia"]); 
+?>
                 <tbody>
+                <?php    
+                    foreach($response['items'] as $datos){?>
+                <tr>
+                    <td>
+                        <?php echo $cont ?>
+                    </td>
+                    <td>
+                        <?php echo $datos['num_permiso'] ?>
+                    </td>
+                    <td class="center">
+                        <?php echo $datos['motivo'] ?>
+                    </td>
+                    <td class="center">
+                        <?php echo $datos['f_dif'] ?>
+                    </td>
+                    <td class="center">
+                        <?php echo $datos['nombre_completo'] ?>
+                    </td>
+                    <td class="center">
+                        <?php echo ($datos['dias']+1) ?>
+                    </td>
+                    <td class="center">
+                        <?php echo $datos['horas'] ?>
+                    </td>
+                    <td class="center">
+                          <a class="btn btn-info" data-rel="tooltip" title='Modificar permiso' href="?mod=empleados&idm=<?php echo $datos['id_permiso'] ?>"> 
+                            <i class="halflings-icon white edit"></i>
+                        </a>
+                    </td>
+                </tr>
+                <?php  
+$cont ++;
+} ?>
                 </tbody>
                 </table>
             </div>

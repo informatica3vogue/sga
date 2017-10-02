@@ -1,7 +1,33 @@
+<script type="text/javascript">
+  $(document).ready(function () {     
+     document.getElementById("ingreso").style.display ="none";
+     document.getElementById("vista").style.display ="block";
+  });
+  
+  
+  //Seleccionar ventana motivo
+  function vista(objOrigen){
+  document.getElementById("vista").style.display ="block";
+  document.getElementById("ingreso").style.display ="none"; 
+  
+  } 
+
+  function ingreso(objOrigen){
+  document.getElementById("ingreso").style.display ="block"; 
+  document.getElementById("vista").style.display ="none";
+  }
+</script>
 <ul class="breadcrumb">
   <a href="#" onclick="ingreso(this)" class="icon-edit" title="Ingresar nueva seccion">&nbsp;&nbsp;Ingresar nueva seccion</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#" onclick="vista(this)" class="icon-edit" title="Ver secciones ingresadas">&nbsp;&nbsp;Ver secciones ingresadas</a>
 </ul>
+
+
+<?php
+                $cont = 1;  
+                $response = $dataTable->obtener_Secciones($_SESSION["id_dependencia"]);
+                $abreviatura = (isset($response["items"][0]["abreviatura"])) ? $response["items"][0]["abreviatura"] : "";
+?>
 <div id="vista" style="display: block;">
   <div class="row-fluid">
     <div class="box span12">
@@ -28,6 +54,25 @@
                     </tr> 
                 </thead>
                 <tbody>
+                <?php    
+                    foreach($response['items'] as $datos){?>
+                <tr>
+                    <td>
+                        <?php echo $cont ?>
+                    </td>
+                    <td>
+                        <?php echo $datos['seccion'] ?>
+                    </td>
+                    <td class="center">
+                        <a class="btn btn-success" data-rel="tooltip" title='Editar seccion' data-toggle='modal' data-target='#modal_secc_mod' onclick="modificar(<?php echo $datos['id_seccion'] ?>, '<?php echo $datos['seccion'] ?>');"> <i class="halflings-icon white edit"></i>
+                        </a>
+                        <a class="btn btn-danger" data-rel="tooltip" title='Eliminar seccion' data-toggle='modal' data-target='#modal_dependencia' href="#" onclick="eliminar(<?php echo $datos['id_seccion'] ?>, '<?php echo $datos['seccion'] ?>');"> <i class="halflings-icon white trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                <?php  
+$cont ++;
+} ?>
                 </tbody>
             </table>
         </div>
@@ -133,3 +178,125 @@
         <button type="submit" id="guardar_mod" name="guardar_mod" class="btn btn-primary">Guardar</button>
     </div>
 </div>
+<script type="text/javascript">
+// Funcion que nos permitira mandar los datos a ingresar de secciones
+$(document).ready(function () {
+    $('#guardar_seccion').click(function () {
+        var formulario = $('#frmSeccion').serializeArray();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'procesos/guardar_seccion.php',
+            data: formulario,
+        }).done(function (response) {                
+            if(response.success == false) {
+               bootbox.alert(response.mensaje, function() { });
+            }else{
+                bootbox.alert(response.mensaje, function() { location.href = "?mod=dependencia"; }); 
+            }
+        });
+    });
+});
+
+//qutias articulos de tabla
+function quitar(seccion){
+    if(seccion!=""){
+        $.ajax({
+            url: "procesos/quitar_secciones.php",
+            type: "POST",
+            dataType: "json",
+            data: {"seccion": seccion}
+        }).done(function(data){
+            total=data.length;
+            var opciones;
+            var n=0;
+            if(total>0){
+                for(var i=0; i<total; i++){
+                    n++;
+                     opciones+="<tr><td width='8%'>"+n+"</td><td width='84%'>"+data[i].seccion+"</td><td width='6.8%'><a href='#' class='btn btn-danger' onclick=\"quitar('"+data[i].seccion+"');\"><i class='halflings-icon white trash'></a></td></tr>";
+                }
+                $('#detalle_seccion').html(opciones);
+            }else{
+                $('#detalle_seccion').html("");
+            }
+        });
+    }
+}
+
+//añadis articulos a tabla
+function add(){
+    var seccion=$("#txtSecciones").val();
+    if(seccion==""){
+        bootbox.alert('Digite una seccion, por favor', function() {  });
+    }else{
+        $.ajax({
+            url: "procesos/agregar_secciones.php",
+            type: "POST",
+            dataType: "json",
+            data: {"seccion": seccion}
+        }).done(function(data){
+            total=data.length;
+            var opciones;
+            var n=0;
+            if(total>0){
+                for(var i=0; i<total; i++){
+                    n++;
+                    opciones+="<tr><td width='8%'>"+n+"</td><td width='84%'>"+data[i].seccion+"</td><td width='6.8%'><a href='#' class='btn btn-danger' onclick=\"quitar('"+data[i].seccion+"');\"><i class='halflings-icon white trash'></a></td></tr>";
+                }
+                $('#detalle_seccion').html(opciones);
+            }            
+        });
+    }
+}
+
+//Funcion para cargar ventana modal 
+function eliminar(id_seccion, seccion){
+    document.getElementById("txtId3").value=id_seccion;
+    document.getElementById("seccion").value=seccion;
+}
+
+// Funcion que nos permitira cambiar el estado del usuario
+$(document).ready(function () {
+    $('#eliminar').click(function () {
+        var formulario = $('#frmEliminar').serializeArray();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'procesos/eliminar_seccion.php',
+            data: formulario,
+        }).done(function (response) {
+            if(response.success == true) {
+                bootbox.alert(response.mensaje, function() { location.href = "?mod=dependencia"; });
+            }else{
+                bootbox.alert(response.mensaje, function() { });
+            }
+        });
+    });
+});
+
+//Funcion para cargar ventana modal 
+function modificar(id, seccion){
+    document.getElementById('txtId4').value = id;
+    document.getElementById("txtSeccionActual").value=seccion;
+}
+
+// Funcion que nos permitira cambiar el estado del usuario
+$(document).ready(function () {
+    $('#guardar_mod').click(function () {
+        var formulario = $('#frmModificar').serializeArray();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: 'procesos/modificar_seccion.php',
+            data: formulario,
+        }).done(function (response) {
+            if(response.success == true) {
+                bootbox.alert(response.mensaje, function() { location.href = "?mod=dependencia"; });
+            }else{
+                bootbox.alert(response.mensaje, function() { });
+            }
+        });
+    });
+});
+
+</script>
