@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="?mod=inicio" style="margin-top: 1px;"><span class="header-title"><img src="img/CSJ_Login.png" alt="Inicio" class="img-circle" width="45" height="45"/>&nbsp;SGA&nbsp;&nbsp;<span class="dependencia"><?php echo $_SESSION["dependencia"]; ?></span></span></a>
+            <a class="brand" href="?mod=inicio" style="margin-top: 1px;"><span class="header-title"><img src="img/SGA1.png" alt="Inicio" class="img-circle" width="45" height="45"/>&nbsp;SGA&nbsp;&nbsp;<span class="dependencia"><?php echo $_SESSION["dependencia"]; ?></span></span></a>
             <!-- start: Header Menu -->
             <?php  include("paginas/header.php");  ?>
             <!-- end: Header Menu -->

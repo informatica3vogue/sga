@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function () {     
      document.getElementById("porEmpleadoDiasF").style.display ="none";
      document.getElementById("porMotivo").style.display ="block";
@@ -152,7 +152,7 @@ $(function() {
      }
  });
 });
-</script>
+</script> -->
 <ul class="breadcrumb">
   <a href="?mod=permisos" class="icon-edit" title="Ir a permisos"><font color="#2E64FE">&nbsp;Volver a permisos</font></a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#" onclick="actPorMot(this)" class="icon-edit" title="Permiso">&nbsp;&nbsp;Por empleado y motivo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

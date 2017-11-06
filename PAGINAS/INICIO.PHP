@@ -1,1 +1,1 @@
-<center><img style="padding-top:65px;" src="img/CSJ.png" width="450px" height="450px"><center>
+<center><img style="padding-top:65px;" src="img/CSJini.png" width="450px" height="450px"><center>

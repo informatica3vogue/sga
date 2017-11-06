@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
     $result = $data->query($sql, $params, $param_list);
     if ($result["total"] > 0) {
 ?>
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
 //cargar combo de con conocimiento 
 $(document).ready(function () {
     var con_conocimiento = "<?php echo $result['items'][0]['con_copia'] ?>";
@@ -142,7 +142,7 @@ $(document).ready(function () {
         document.getElementById('ocultar').style.display = 'block';  
     } 
 });
-</script> 
+</script> --> 
 <div class="row-fluid">
     <ul class="breadcrumb">
         <a href="?mod=memorandum" class="icon-folder-open" title="Permiso">&nbsp;Ir memorándum</a>

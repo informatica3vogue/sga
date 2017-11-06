@@ -45,13 +45,13 @@
                 </tr>
                 </thead>
 <?php
-                $cont = 1;  
-                $response = $dataTable->obtener_Permisos($_SESSION["id_dependencia"]); 
+                //$cont = 1;  
+               // $response = $dataTable->obtener_Permisos($_SESSION["id_dependencia"]); 
 ?>
                 <tbody>
                 <?php    
-                    foreach($response['items'] as $datos){?>
-                <tr>
+                    //foreach($response['items'] as $datos){?>
+                <!-- <tr>
                     <td>
                         <?php echo $cont ?>
                     </td>
@@ -78,10 +78,10 @@
                             <i class="halflings-icon white edit"></i>
                         </a>
                     </td>
-                </tr>
+                </tr> -->
                 <?php  
-$cont ++;
-} ?>
+//$cont ++;
+//} ?>
                 </tbody>
                 </table>
             </div>

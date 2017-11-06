@@ -45,12 +45,12 @@
                 </tr>
                 </thead>
 <?php
-                $cont = 1;  
-                $response = $dataTable->obtener_Empleados_Activos($_SESSION["id_dependencia"]); 
+                //$cont = 1;  
+                //$response = $dataTable->obtener_Empleados_Activos($_SESSION["id_dependencia"]); 
 ?>
                 <tbody>
-                <?php    
-                    foreach($response['items'] as $datos){
+               <!--  <?php    
+                    //foreach($response['items'] as $datos){
 ?>
                 <tr>
                     <td>
@@ -90,8 +90,8 @@
                     </td>
                 </tr>
                 <?php  
-$cont ++;
-} ?>
+//$cont ++;
+//} ?> -->
                 </tbody>
                 </table>
             </div>
@@ -137,12 +137,12 @@ $cont ++;
                 </tr>
                 </thead>
 <?php
-                $cont = 1;  
-                $response = $dataTable->obtener_Empleados_Inactivos($_SESSION["id_dependencia"]); 
+                // $cont = 1;  
+                // $response = $dataTable->obtener_Empleados_Inactivos($_SESSION["id_dependencia"]); 
 ?>
                 <tbody>
-                <?php    
-                    foreach($response['items'] as $datos){?>
+                <!-- <?php    
+                    //foreach($response['items'] as $datos){?>
                 <tr>
                     <td>
                         <?php echo $cont ?>
@@ -172,8 +172,8 @@ $cont ++;
                     </td>
                 </tr>
                 <?php  
-$cont ++;
-} ?>
+//$cont ++;
+//} ?> -->
                 </tbody>
                 </table>
             </div>
@@ -327,7 +327,7 @@ $cont ++;
         <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Cancelar</button>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 //Funcion para cargar el formulario y modificar los datos
 function datos_empleado(codigo, nombre, apellido, estado_civil, DUI, NIT, NUP, ISSS, tipo_sangre, titulo,  cargo, fecha_contratacion, tipo_contratacion, direccion, fijo, movil, persona_encargada, encargado, seccion) {
     document.getElementById('txtCodigo').value = codigo;
@@ -377,4 +377,4 @@ $(document).ready(function () {
         });
     });
 });
-</script>
+</script> -->

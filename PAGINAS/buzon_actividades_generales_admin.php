@@ -19,7 +19,7 @@
                     <div class="input-append">
                         <form onsubmit="busqueda_actividad_pend($('#txtBuscar').val()); return false;" autocomplete="off">
                             <input type="text" placeholder="Buscar actividad por..." name="txtBuscar" id="txtBuscar">
-                            <button title="Buscar" type="submit" class="btn btn-success" id="buscar"><span class="halflings-icon search white"></span></button>
+                            <button title="Buscar" type="button" class="btn btn-success" id="buscar"><span class="halflings-icon search white"></span></button>
                         </form>
                     </div>
                     <div class="priority high">
@@ -49,7 +49,7 @@
                     <div class="input-append">
                         <form onsubmit="busqueda_actividad_fin($('#txtBuscar2').val()); return false;" autocomplete="off">
                             <input type="text" placeholder="Buscar actividad por..." name="txtBuscar2" id="txtBuscar2">
-                            <button title="Buscar" type="submit" class="btn btn-success" id="buscar2"><span class="halflings-icon search white"></span></button>
+                            <button title="Buscar" type="button" class="btn btn-success" id="buscar2"><span class="halflings-icon search white"></span></button>
                         </form>
                     </div>
                     <div class="priority low">
@@ -282,7 +282,7 @@
         <a href="#" class="btn btn-danger btn-movil" data-dismiss="modal">Cerrar</a>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 //Funcion que permitira mandar los datos del seguimiento a nuestra bd
 $(document).ready(function () {
     $("#guardar2").click(function () {
@@ -599,4 +599,4 @@ function store_usuarios_seccion(id_seccion){
         $('#txtAsignado').select2();
     });         
 }
-</script>
+</script> -->

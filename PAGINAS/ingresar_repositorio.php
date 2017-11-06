@@ -53,7 +53,7 @@
     </div>
 
 </div>
-<script type="text/javascript">
+<!--<script type="text/javascript">
 // Funcion para mostrar los campos de 'para' dependiendo del tipo de memorandum
 $(document).ready(function () {
 	 document.getElementById('mostrar').style.display = 'none'; 
@@ -123,4 +123,4 @@ $(document).ready(function () {
         $('#txtPara').select2();
     });         
 });
-</script>
+</script>-->

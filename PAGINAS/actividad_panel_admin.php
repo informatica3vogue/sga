@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function () {
     $('#formulario1').show();
     $('#formulario2').hide();
@@ -215,7 +215,7 @@ $(function() {
     });
 });
 </script>
-<!-- start submenu -->
+ --><!-- start submenu -->
 <ul class="breadcrumb">
   <a href="?mod=actividades" class="icon-list-alt" title="Ir a actividades"><font color="#2E64FE">&nbsp;Volver a actividades</font></a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#" id="link1" class="icon-bar-chart" title="Reporte actividades por secci&oacute;n">&nbsp;Reporte actividades por secci&oacute;n</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

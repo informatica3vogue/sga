@@ -1,4 +1,4 @@
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
 //cargar combo de compartir
 $(document).ready(function () {
     var nombre_completo = "<?php echo $_SESSION['nombre'].' / '.$_SESSION['cargo'] ?>";
@@ -142,7 +142,7 @@ $(document).ready(function () {
     });
 });
 
-</script> 
+</script>  -->
 <ul class="breadcrumb"> 
     <a href="?mod=memorandum" class="icon-folder-open" title="Permiso">&nbsp;Ir memorándum</a> 
 </ul>

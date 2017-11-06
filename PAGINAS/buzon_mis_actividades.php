@@ -31,7 +31,7 @@ if ($_SESSION["id_rol"] == 2 || $_SESSION["id_rol"] == 3 || $_SESSION["id_rol"] 
                     <div class="input-append">
                         <form id="frmPendientes" name="frmPendientes" action="" onsubmit="busqueda_actividad_pend($('#txtBuscar').val()); return false;" autocomplete="off">
                             <input type="text" placeholder="Buscar actividad por..." name="txtBuscar" id="txtBuscar">
-                            <button type="submit" class="btn btn-success" id="buscar" name="buscar"><span class="halflings-icon search white"></span></button>
+                            <button type="button" class="btn btn-success" id="buscar" name="buscar"><span class="halflings-icon search white"></span></button>
                         </form>
                     </div>
                     <div class="priority high">
@@ -61,7 +61,7 @@ if ($_SESSION["id_rol"] == 2 || $_SESSION["id_rol"] == 3 || $_SESSION["id_rol"] 
                     <div class="input-append">
                         <form id="frmFinalizadas" name="frmFinalizadas" action="" onsubmit="busqueda_actividad_fin($('#txtBuscar2').val()); return false;" autocomplete="off">
                             <input type="text" placeholder="Buscar actividad por..." name="txtBuscar2" id="txtBuscar2">
-                            <button type="submit" class="btn btn-success" id="buscar2" name="buscar2"><span class="halflings-icon search white"></span></button>
+                            <button type="button" class="btn btn-success" id="buscar2" name="buscar2"><span class="halflings-icon search white"></span></button>
                         </form>
                     </div>
                     <div class="priority low">
@@ -289,7 +289,7 @@ if ($_SESSION["id_rol"] == 2 || $_SESSION["id_rol"] == 3 || $_SESSION["id_rol"] 
     </div>
 </div>
 </form>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
  // Funcion que nos permitira reasignar la actividad
 $(document).ready(function () {
     $("#guardar_reasignacion").click(function () {
@@ -582,4 +582,4 @@ function usuario_reasignar() {
 $(document).ready(function () {
     usuario_reasignar();
 });
-</script>
+</script> -->

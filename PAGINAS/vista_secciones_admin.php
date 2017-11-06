@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function () {     
      document.getElementById("ingreso").style.display ="none";
      document.getElementById("vista").style.display ="block";
@@ -17,16 +17,16 @@
   document.getElementById("vista").style.display ="none";
   }
 </script>
-<ul class="breadcrumb">
+ --><ul class="breadcrumb">
   <a href="#" onclick="ingreso(this)" class="icon-edit" title="Ingresar nueva seccion">&nbsp;&nbsp;Ingresar nueva seccion</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#" onclick="vista(this)" class="icon-edit" title="Ver secciones ingresadas">&nbsp;&nbsp;Ver secciones ingresadas</a>
 </ul>
 
 
 <?php
-                $cont = 1;  
-                $response = $dataTable->obtener_Secciones($_SESSION["id_dependencia"]);
-                $abreviatura = (isset($response["items"][0]["abreviatura"])) ? $response["items"][0]["abreviatura"] : "";
+                //$cont = 1;  
+                //$response = $dataTable->obtener_Secciones($_SESSION["id_dependencia"]);
+                //$abreviatura = (isset($response["items"][0]["abreviatura"])) ? $response["items"][0]["abreviatura"] : "";
 ?>
 <div id="vista" style="display: block;">
   <div class="row-fluid">
@@ -41,8 +41,9 @@
                     <div class="navbar-form navbar-left" role="search">
                 <div class="form-group span12">
                     <label>Abreviatura de dependencia para referencia: </label>
-                    <input type="text" class="form-control" name="txtAbreviatura2" value="<?php echo $abreviatura ?>" id="txtAbreviatura2" disabled="true">
+                    <input type="text" class="form-control" name="txtAbreviatura2" value="" id="txtAbreviatura2" disabled="true">
                 </div>
+                <!--se quito <?php //echo $abreviatura ?> de value-->
             </div>
             <div class='table-responsive' width='100%'>
             <table class='table table-hover table-bordered table-condensed bootstrap-datatable'>
@@ -55,8 +56,8 @@
                 </thead>
                 <tbody>
                 <?php    
-                    foreach($response['items'] as $datos){?>
-                <tr>
+                  //  foreach($response['items'] as $datos){?>
+                <!-- <tr>
                     <td>
                         <?php echo $cont ?>
                     </td>
@@ -69,10 +70,10 @@
                         <a class="btn btn-danger" data-rel="tooltip" title='Eliminar seccion' data-toggle='modal' data-target='#modal_dependencia' href="#" onclick="eliminar(<?php echo $datos['id_seccion'] ?>, '<?php echo $datos['seccion'] ?>');"> <i class="halflings-icon white trash"></i>
                         </a>
                     </td>
-                </tr>
+                </tr> -->
                 <?php  
-$cont ++;
-} ?>
+//$cont ++;
+//} ?>
                 </tbody>
             </table>
         </div>
@@ -178,7 +179,7 @@ $cont ++;
         <button type="submit" id="guardar_mod" name="guardar_mod" class="btn btn-primary">Guardar</button>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 // Funcion que nos permitira mandar los datos a ingresar de secciones
 $(document).ready(function () {
     $('#guardar_seccion').click(function () {
@@ -299,4 +300,4 @@ $(document).ready(function () {
     });
 });
 
-</script>
+</script> -->

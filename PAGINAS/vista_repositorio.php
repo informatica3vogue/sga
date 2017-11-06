@@ -2,6 +2,7 @@
     <!-- start submenu -->
     <ul class="breadcrumb">   
         <a href="?mod=irepositorio" class="icon-plus" data-toggle='modal'  title="Ingresar repositorio">&nbsp;Ingresar repositorio</a>
+        <!--referencia eliminadad es ?mod=irepositorio-->
     </ul>
     <!-- end submenu-->
     <div class="box">

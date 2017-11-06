@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 // Funcion que nos permitira mandar los datos a ingresar
 $(document).ready(function () {
     $('#guardar').click(function () {
@@ -134,7 +134,7 @@ $(document).ready(function () {
     });         
 });
 </script>
-<!-- start submenu -->
+ --><!-- start submenu -->
 <ul class="breadcrumb">
     <a href="?mod=actividades" class="icon-list-alt" title="Mis actividades">&nbsp;Mis actividades</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="?mod=actividad" class="icon-list-alt" title="Actividades generales">&nbsp;Actividades generales</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

@@ -78,7 +78,7 @@
     </div>
 </form>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 //funcion para mostrar tabla con los grupos  
 $(document).ready(function() {
     var cont =1;
@@ -207,4 +207,4 @@ var parametros = {
             }
         });    
 };
-</script>
+</script> -->

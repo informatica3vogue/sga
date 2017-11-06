@@ -30,7 +30,7 @@ $(document).ready(function () {
                 </tr>
                 <tr style="background: #ffffff;">
                     <td colspan="3">
-                        <center><img src="img/CSJ_login.png"></center>
+                        <center><img src="img/login.png"></center>
                     </td>
                 </tr>
                 <tr>

@@ -66,7 +66,7 @@
             </form>
         </div>
     </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 //funcion para llenar combo de empleados
 $(document).ready(function () {
@@ -172,4 +172,4 @@ $(document).ready(function () {
         });
     });
 });
-</script>
+</script> -->
